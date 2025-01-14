@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/Users/damianndoja/dev/shambles",
+    "command": "clang++ -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL -std=c++20 -I/Users/damianndoja/dev/raylib/src raylib/src/libraylib.a src/main.cpp -o build/main",
+    "file": "src/main.cpp"
+  }
+]
