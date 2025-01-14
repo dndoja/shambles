@@ -1,17 +1,28 @@
 #include "raylib.h"
 
 int main() {
-  InitWindow(800, 450, "raylib [core] example - basic window");
+    InitWindow(800, 450, "raylib [core] example - basic window");
 
-  while (!WindowShouldClose()) {
-    BeginDrawing();
-    ClearBackground(RAYWHITE);
-    DrawText("Congrats dumbass! You created your first window!", 190, 200, 20,
-             LIGHTGRAY);
-    EndDrawing();
-  }
+    Camera3D camera = {};
+    camera.position = {10.0f, 10.0f, 10.0f};
+    camera.target = {0.0f, 0.0f, 0.0f};
+    camera.up = {0.0f, 1.0f, 0.0f};
+    camera.fovy = 45.0f;
+    camera.projection = CAMERA_PERSPECTIVE;
 
-  CloseWindow();
+    while (!WindowShouldClose()) {
+        BeginDrawing();
 
-  return 0;
+        BeginMode3D(camera);
+        ClearBackground(RAYWHITE);
+        DrawCube({0, 0, 0}, 2.0f, 2.0f, 2.0f, RED);
+        DrawCube({50, 50, 0}, 1000, 1000, 20, RED);
+        EndMode3D();
+
+        EndDrawing();
+    }
+
+    CloseWindow();
+
+    return 0;
 }
